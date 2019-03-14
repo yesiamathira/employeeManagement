@@ -1,0 +1,48 @@
+
+<app-menu></app-menu>
+<h2>My employee List</h2>
+<ul class="Employees">
+  <li *ngFor="let employee of employees"
+    [class.selected]="employee === selectedEmployee"
+    (click)="onSelect(employee)">
+    <span class="badge">{{employee.id}}</span> {{employee.name}}<span> {{employee.email}} </span>{{employee.phone}}<span>{{employee.address}}</span>
+  </li>
+</ul>
+
+ <ul class="employees" >
+  <li>
+  <button (click)="addEmployee()" type="" >Add Employee</button>
+  <button (click)="removeEmployee()" type="" >Remove Employee</button>
+  </li>
+  </ul>
+  <input type="text" name="EmployeeName" placeholder="EmployeeName" [(ngModel)]="employee.name"> <br><br>
+  <input type="" name="EmployeeId" placeholder="EmployeeId" [(ngModel)]="employee.id"> <br><br>
+  <input type="text" name="emailid" placeholder="EmailId" [(ngModel)]="employee.email"> <br><br>
+  <input type="" name="phone" placeholder="Phone" [(ngModel)]="employee.phone"> <br><br>
+  <input type="text" name="address" placeholder="Address" [(ngModel)]="employee.address"> <br><br>
+
+<div *ngFor="let employee of employees">  
+  {{employee.name}}
+   {{employee.id}}
+    {{employee.email}}
+    {{employee.phone}}
+    {{employee.address}}
+
+</div> 
+
+
+
+<div *ngIf="selectedEmployee">
+
+  <h2>{{selectedEmployee.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedEmployee.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedEmployee.name" placeholder="name">
+      <input [(ngModel)]="selectedEmployee.email" placeholder="email">
+      <input [(ngModel)]="selectedEmployee.phone" placeholder="phone">
+      <input [(ngModel)]="selectedEmployee.address" placeholder="address">
+    </label>
+  </div>
+
+</div>
